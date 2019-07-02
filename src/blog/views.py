@@ -33,7 +33,7 @@ def blog_post_list_view(request):
 @staff_member_required
 #@login_required(login_url = '/login')
 def blog_post_create_view(request):
-	form = BlogPostModelForm(request.POST or None)
+	form = BlogPostModelForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		obj = form.save(commit=false)
 		obj.user = request.user
